@@ -1,7 +1,7 @@
 import os
 from openai import OpenAI
 
-# کلید API از تنظیمات سرور خوانده می‌شود، نه از داخل کد
+# خواندن کلید از تنظیمات گیت‌هاب
 API_KEY = os.environ.get("LLM7_API_KEY")
 
 client = OpenAI(
@@ -32,10 +32,10 @@ def generate_content(topic):
     return chat_completion.choices[0].message.content
 
 if __name__ == "__main__":
-    print("اي جنت توليد محتوا آماده است.")
-    topic = input("موضوع پست خود را وارد كنيد: ")
+    # موضوع را اینجا به صورت پیش‌فرض تنظیم می‌کنیم
+    topic = "Artificial Intelligence in 2026"
+    print(f"در حال تولید محتوا برای موضوع: {topic}")
     
-    print("\n در حال توليد محتوا...\n")
     try:
         result = generate_content(topic)
         print("--- خروجی ---")
